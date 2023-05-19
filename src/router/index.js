@@ -1,21 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import TodoPage from '../views/TodoPage.vue'
+import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'auth',
       component: TodoPage
     },
     {
-      path: '/auth',
-      name: 'auth',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AuthPage.vue')
+      path: '/HomeView',
+      name: 'Home',
+      component: HomeView
     }
   ]
 })

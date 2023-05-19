@@ -1,7 +1,8 @@
 <template>
-  <section>
-    <router-view class="app-main" /> <!-- your routes will load inside of these tags -->    
-  </section>
+  <div id="app" class="bg-dark">
+    <img src="src/assets/pergaminho.jpeg" alt="parchment">
+    <router-view class="app-main" />
+  </div>
 </template>
 
 <script setup>
@@ -16,13 +17,10 @@ const { user } = storeToRefs(userStore);
  
 onMounted(async () => {
   try {
-    await userStore.fetchUser(); // here we call fetch user
+    await userStore.fetchUser(); 
     if (!user.value) {
-      // redirect them to logout if the user is not there
-      
       router.push({ path: '/auth' });
     } else {
-      // continue to dashboard
       router.push({ path: '/' });
     }
   } catch (e) {
@@ -30,34 +28,3 @@ onMounted(async () => {
   }
 });
 </script>
-
-<style>
-body {
-  font-family: Arial, sans-serif;
-}
-
-#app {
-  max-width: 500px;
-  margin: 50px auto;
-}
-
-input {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-}
-
-button {
-  background-color: red;
-  color: white;
-  padding: 5px 10px;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: darkred;
-}
-</style>

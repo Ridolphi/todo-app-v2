@@ -1,6 +1,12 @@
 <template>
-  <div id="app" class="bg-dark">
-    <img src="src/assets/pergaminho.jpeg" alt="parchment">
+  <div id="app">
+    <div class="background">
+     
+      <!--
+      <img class="parch" src="src/assets/pergaminho.jpeg" alt="parchment">
+      -->
+    
+    </div>
     <router-view class="app-main" />
   </div>
 </template>
@@ -27,4 +33,35 @@ onMounted(async () => {
     console.log(e);
   }
 });
+
 </script>
+
+<style scoped>
+#app {
+  position: relative;
+  height: 100vh;
+
+ /*
+  background-image: url("@/assets/parchment-4746819_1280.jpg");
+  background-size: cover;
+  background-position: center;
+*/
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5));
+}
+
+/*
+.parch {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+*/
+
+</style>

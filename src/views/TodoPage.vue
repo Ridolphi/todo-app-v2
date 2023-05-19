@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="todo">
     <h1>Here's your To-do List App!</h1>
   </div>
   <form @submit.prevent="register">
@@ -67,3 +67,16 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+h1 {
+  @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+}
+.todo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>

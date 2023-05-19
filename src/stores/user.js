@@ -3,14 +3,13 @@ import { supabase } from '../supabase';
 
 export const useUserStore = defineStore('user', {
   state: () => ({
-    user: JSON.parse(localStorage.getItem('user')) || null,
+    user: localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null,
   }),
 
   actions: {
     async fetchUser () {
-      const user = await supabase.auth.user();
-      this.user = user
-      localStorage.setItem('user', JSON.stringify(user));
+      const { user } = supabase.auth;
+      console.log(user);
     },
     async signUp (email, password) {
       const { user, error } = await supabase.auth.signUp({

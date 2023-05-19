@@ -17,6 +17,5 @@ export const useTaskStore = defineStore('tasks', {
         this.tasks = tasks;
       }
     },
-    // Adicione suas outras ações aqui
   }
 });
